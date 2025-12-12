@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>All Users - ERM</title>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th> Name </th>
+                    <th> Email </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:unless="${#lists.isEmpty(users)}">
+                    <td colspan="2"> No Users Available </td>
+                </tr>
+                <tr th:each="user : ${users}">
+                    <td><span th:text="${user.name}"> No Name </span></td>
+                    <td><span th:text="${user.email}"> No Email </span></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

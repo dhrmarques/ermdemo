@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ERM Post-Login Page</title>
+    </head>
+    <body>
+        <h1>Welcome to ERM!</h1>
+        <p>Your email is: <span th:text="${email}">(no-email-provided)</span>!</p>
+        <br/>
+        <a th:href="@{'/erm/createUser'}">Add an user</a>
+        <br/>
+        <a th:href="@{'/erm/user/' + ${userId}}">View user details</a>
+        <br/>
+        <a th:href="@{'/erm/users'}">View all users</a>
+    </body>
+</html>

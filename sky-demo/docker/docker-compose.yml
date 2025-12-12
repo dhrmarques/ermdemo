@@ -1,0 +1,28 @@
+services:
+    pgadmin4:
+        image: dpage/pgadmin4
+        container_name: pgadm4_container
+        environment:
+            - PGADMIN_DEFAULT_EMAIL=test@pgadm4.net
+            - PGADMIN_DEFAULT_PASSWORD=test
+        ports:
+            - "5151:80"
+        networks:
+            - postgresql-network
+    postgres:
+        image: postgres:18
+        container_name: postgresql18_container
+        environment:
+            - POSTGRES_DB=postgres_db
+            - POSTGRES_USER=postgres        
+            - POSTGRES_PASSWORD=postgres
+        ports: 
+            - "5432:5432"
+        networks: 
+            - postgresql-network
+        volumes: 
+            - ./postgresql/data:/var/lib/postgresql/18/data
+            - ./postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql
+networks:
+    postgresql-network:
+        driver: bridge

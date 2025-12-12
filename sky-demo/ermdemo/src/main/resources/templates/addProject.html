@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+      <meta charset="UTF-8">
+      <title>Add TBUser - ERM</title>
+    </head>
+    <body>
+        <p>Add New User</p>
+        <form th:action="@{'/projects/createProject/' + ${userId}}" th:object="${newProject}" method="post">
+          <label>Name</label>
+          <input type="text" th:field="*{name}" placeholder="Your name" />
+          <br/>
+          <button type="submit">Send</button>
+        </form>
+    </body>
+</html>

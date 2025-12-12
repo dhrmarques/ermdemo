@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>All User Projects - ERM</title>
+</head>
+<body>
+<table>
+  <thead>
+  <tr>
+    <th> Name </th>
+    <th> User ID </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:unless="${#lists.isEmpty(userProjects)}">
+    <td colspan="2"> No User Projects Available </td>
+  </tr>
+  <tr th:each="project : ${userProjects}">
+    <td><span th:text="${project.name}"> No Name </span></td>
+    <td><span th:text="${project.user.id}"> No User ID </span></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Add TBUser - ERM</title>
+    </head>
+    <body>
+        <p>Add New User</p>
+        <form th:action="@{/erm/createUser}" th:object="${newUser}" method="post">
+            <label>Email</label>
+            <input type="email" th:field="*{email}" placeholder="Your email" />
+            <br/>
+            <label>Password</label>
+            <input type="password" th:field="*{password}" placeholder="Your password"/>
+            <br/>
+            <label>Name</label>
+            <input type="text" th:field="*{name}" placeholder="Your name" />
+            <br/>
+            <button type="submit">Send</button>
+        </form>
+    </body>
+</html>
